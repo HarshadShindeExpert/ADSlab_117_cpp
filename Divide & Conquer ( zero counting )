@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int calc(int low , int high , vector<int> a , int siz)
+{
+    if(low==high)
+    {
+        if(a[low]==0)
+            return siz-low;
+        
+        else
+            return 0;
+    }
+    int mid =(low + high )/2;
+    if(a[mid]==1)
+        return calc(mid+1 , high , a , siz);
+    else
+        return calc(low , mid , a , siz);
+    
+}
+
+int main()
+{
+    vector<int> a={1,1,1,1,0,0,0,0,0,0};
+    cout<<calc(0,9,a ,a.size());
+    return 0;
+}
